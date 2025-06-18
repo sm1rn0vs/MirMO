@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мир Мягких Окон - №2 в России по производству мягких окон</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .header {
+            background-color: #2c7be5;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .slogan {
+            font-size: 18px;
+            font-style: italic;
+        }
+        
+        .nav {
+            background-color: #1a5cb8;
+            padding: 15px 0;
+        }
+        
+        .nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+        
+        .nav li {
+            margin: 0 20px;
+        }
+        
+        .nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        
+        .nav a:hover {
+            color: #ffcc00;
+        }
+        
+        .hero {
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://example.com/soft-windows.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 500px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 0 20px;
+        }
+        
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            max-width: 800px;
+            margin-bottom: 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #ffcc00;
+            color: #333;
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #e6b800;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 32px;
+            color: #2c7be5;
+        }
+        
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 40px;
+        }
+        
+        .feature {
+            flex-basis: 30%;
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .feature img {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 20px;
+        }
+        
+        .feature h3 {
+            margin-bottom: 15px;
+            color: #2c7be5;
+        }
+        
+        .about {
+            background-color: #f5f9ff;
+            padding: 60px 0;
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+        }
+        
+        .about-text {
+            flex: 1;
+            padding-right: 40px;
+        }
+        
+        .about-image {
+            flex: 1;
+        }
+        
+        .about-image img {
+            width: 100%;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .badge {
+            display: inline-block;
+            background-color: #ffcc00;
+            color: #333;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        
+        .portfolio {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        
+        .portfolio-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 5px;
+            height: 250px;
+        }
+        
+        .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .portfolio-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .portfolio-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(44, 123, 229, 0.9);
+            color: white;
+            padding: 15px;
+            transform: translateY(100%);
+            transition: transform 0.3s;
+        }
+        
+        .portfolio-item:hover .portfolio-overlay {
+            transform: translateY(0);
+        }
+        
+        .contact {
+            background-color: #2c7be5;
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+        }
+        
+        .footer {
+            background-color: #1a1a1a;
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .footer-links a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+        
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            .features {
+                flex-direction: column;
+            }
+            
+            .feature {
+                flex-basis: 100%;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .about-text {
+                padding-right: 0;
+                margin-bottom: 30px;
+            }
+            
+            .portfolio {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .portfolio {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .nav li {
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">Мир Мягких Окон</div>
+        <div class="slogan">№2 в России по производству мягких окон</div>
+    </header>
+    
+    <nav class="nav">
+        <ul>
+            <li><a href="#about">О компании</a></li>
+            <li><a href="#products">Продукция</a></li>
+            <li><a href="#portfolio">Наши работы</a></li>
+            <li><a href="#advantages">Преимущества</a></li>
+            <li><a href="#contacts">Контакты</a></li>
+        </ul>
+    </nav>
+    
+    <section class="hero">
+        <h1>Мягкие окна премиум-класса</h1>
+        <p>Защитите свое пространство от непогоды, сохранив свет и видимость. Лидер рынка с 2010 года.</p>
+        <a href="#contacts" class="btn">Заказать консультацию</a>
+    </section>
+    
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <span class="badge">О компании</span>
+                    <h2 class="section-title">Мир Мягких Окон - №2 в России</h2>
+                    <p>Мы - компания "Мир Мягких Окон", занимающая второе место в рейтинге производителей мягких окон в России. Наша миссия - создавать качественные, долговечные и эстетичные решения для защиты от непогоды.</p>
+                    <p>С 2010 года мы производим мягкие окна из высококачественных материалов, которые выдерживают любые погодные условия, сохраняя прозрачность и эластичность на протяжении многих лет.</p>
+                    <p>Наши клиенты - это владельцы террас, веранд, беседок, балконов и других открытых пространств, которые ценят комфорт и качество.</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://example.com/about-soft-windows.jpg" alt="Производство мягких окон">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="products" class="container">
+        <h2 class="section-title">Наша продукция</h2>
+        <div class="features">
+            <div class="feature">
+                <img src="https://example.com/icon1.png" alt="Иконка">
+                <h3>Мягкие окна для террас</h3>
+                <p>Полная защита от ветра, дождя и снега для вашей террасы. Сохраняют тепло и прозрачность.</p>
+            </div>
+            <div class="feature">
+                <img src="https://example.com/icon2.png" alt="Иконка">
+                <h3>Окна для беседок</h3>
+                <p>Позволяют наслаждаться природой в любую погоду. Быстрый монтаж и демонтаж.</p>
+            </div>
+            <div class="feature">
+                <img src="https://example.com/icon3.png" alt="Иконка">
+                <h3>Балконные решения</h3>
+                <p>Защитите балкон от осадков и ветра, сохранив панорамный обзор и естественное освещение.</p>
+            </div>
+            <div class="feature">
+                <img src="https://example.com/icon4.png" alt="Иконка">
+                <h3>Кафе и рестораны</h3>
+                <p>Специальные решения для летних площадок кафе и ресторанов. Увеличивайте сезонность бизнеса.</p>
+            </div>
+            <div class="feature">
+                <img src="https://example.com/icon5.png" alt="Иконка">
+                <h3>Индивидуальные решения</h3>
+                <p>Изготовление мягких окон по вашим размерам и требованиям. Любые формы и конфигурации.</p>
+            </div>
+            <div class="feature">
+                <img src="https://example.com/icon6.png" alt="Иконка">
+                <h3>Аксессуары</h3>
+                <p>Комплектующие для монтажа и эксплуатации: крепления, молнии, ручки и многое другое.</p>
+            </div>
+        </div>
+    </section>
+    
+    <section id="advantages" class="container">
+        <h2 class="section-title">Почему выбирают нас</h2>
+        <div class="features">
+            <div class="feature">
+                <h3>Качество материалов</h3>
+                <p>Используем только сертифицированные материалы от ведущих мировых производителей.</p>
+            </div>
+            <div class="feature">
+                <h3>Гарантия 5 лет</h3>
+                <p>Даем расширенную гарантию на всю нашу продукцию - 5 лет безупречной службы.</p>
+            </div>
+            <div class="feature">
+                <h3>Собственное производство</h3>
+                <p>Все изделия производятся на нашем заводе в России под строгим контролем качества.</p>
+            </div>
+            <div class="feature">
+                <h3>Опытные специалисты</h3>
+                <p>Более 100 квалифицированных сотрудников с опытом работы от 5 лет.</p>
+            </div>
+            <div class="feature">
+                <h3>Доставка по всей РФ</h3>
+                <p>Организуем доставку в любой регион России в кратчайшие сроки.</p>
+            </div>
+            <div class="feature">
+                <h3>2-е место в России</h3>
+                <p>По оценке "Рейтинга производителей 2023" занимаем второе место в стране.</p>
+            </div>
+        </div>
+    </section>
+    
+    <section id="portfolio" class="container">
+        <h2 class="section-title">Наши работы</h2>
+        <div class="portfolio">
+            <div class="portfolio-item">
+                <img src="https://example.com/portfolio1.jpg" alt="Мягкие окна для террасы">
+                <div class="portfolio-overlay">
+                    <h3>Терраса загородного дома</h3>
+                    <p>Московская область</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <img src="https://example.com/portfolio2.jpg" alt="Мягкие окна для кафе">
+                <div class="portfolio-overlay">
+                    <h3>Летняя площадка кафе</h3>
+                    <p>Санкт-Петербург</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <img src="https://example.com/portfolio3.jpg" alt="Мягкие окна для беседки">
+                <div class="portfolio-overlay">
+                    <h3>Садовые беседки</h3>
+                    <p>Краснодарский край</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <img src="https://example.com/portfolio4.jpg" alt="Балконные решения">
+                <div class="portfolio-overlay">
+                    <h3>Балкон в многоквартирном доме</h3>
+                    <p>Екатеринбург</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <img src="https://example.com/portfolio5.jpg" alt="Ресторан">
+                <div class="portfolio-overlay">
+                    <h3>Ресторан на набережной</h3>
+                    <p>Сочи</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <img src="https://example.com/portfolio6.jpg" alt="Индивидуальный проект">
+                <div class="portfolio-overlay">
+                    <h3>Эксклюзивный проект</h3>
+                    <p>Ростов-на-Дону</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="contacts" class="contact">
+        <div class="container">
+            <h2 class="section-title">Оставьте заявку</h2>
+            <p>Наши менеджеры свяжутся с вами в течение 15 минут для консультации</p>
+            
+            <div class="contact-form">
+                <form action="#" method="POST">
+                    <div class="form-group">
+                        <label for="name">Ваше имя</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Телефон</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Сообщение</label>
+                        <textarea id="message" name="message" rows="4"></textarea>
+                    </div>
+                    <button type="submit" class="btn">Отправить заявку</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-links">
+                <a href="#about">О компании</a>
+                <a href="#products">Продукция</a>
+                <a href="#portfolio">Портфолио</a>
+                <a href="#advantages">Преимущества</a>
+                <a href="#contacts">Контакты</a>
+            </div>
+            <p>© 2023 Мир Мягких Окон. Все права защищены.</p>
+            <p>№2 в России по производству мягких окон</p>
+            <p>Адрес: г. Москва, ул. Промышленная, 15</p>
+            <p>Телефон: +7 (967) 564-30-27</p>
+            <p>Email: mchlsmirnoff@gmail.com</p>
+        </div>
+    </footer>
+</body>
+</html>
